@@ -7,6 +7,11 @@ inputs:
     description: GitHub Access Token with permissions for Dependencies and Security API access on the repository.
     required: true
 
+  baseUrl:
+    description: The base URL used to communicate with the GitHub API (To enable support for GitHub Enterprise)
+    required: false
+    default: "https://api.github.com"
+
   sarifReportDir:
     description: The CodeQL output directory for SARIF report(s).
     required: true
