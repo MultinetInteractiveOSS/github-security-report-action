@@ -7,9 +7,15 @@ async function run(): Promise<void> {
   try {
     const token = getRequiredInputValue('token');
 
+    var baseUrl = core.getInput('baseUrl');
+
     const generator = new ReportGenerator({
       repository: getRequiredInputValue('repository'),
-      octokit: new Octokit({auth: token}),
+      
+      octokit: new Octokit({
+        auth: token,
+        baseUrl: baseUrl
+      }),
 
       sarifReportDirectory: getRequiredInputValue('sarifReportDir'),
       outputDirectory: getRequiredInputValue('outputDir'),
